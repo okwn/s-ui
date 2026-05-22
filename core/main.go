@@ -2,6 +2,7 @@ package core
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/alireza0/s-ui/logger"
 
@@ -51,7 +52,8 @@ func (c *Core) Start(sbConfig []byte) error {
 	var opt option.Options
 	err := opt.UnmarshalJSONContext(globalCtx, sbConfig)
 	if err != nil {
-		logger.Error("Unmarshal config err:", err.Error())
+		logger.Error("Failed to parse sing-box config: ", err.Error())
+		return fmt.Errorf("invalid sing-box JSON configuration: %w", err)
 	}
 
 	c.instance, err = NewBox(Options{
