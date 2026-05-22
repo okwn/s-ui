@@ -269,6 +269,9 @@ func NewBox(options Options) (*Box, error) {
 		outboundCtx := ctx
 		if tag != "" {
 			// TODO: remove this
+			// Workaround: enrich context with outbound tag so downstream adapters
+			// can access it via adapter.InboundContext{Outbound} when creating their
+			// own contexts, instead of threading it through constructor parameters.
 			outboundCtx = adapter.WithContext(outboundCtx, &adapter.InboundContext{
 				Outbound: tag,
 			})
@@ -399,6 +402,9 @@ func (s *Box) PreStart() error {
 	err := s.preStart()
 	if err != nil {
 		// TODO: remove catch error
+		// Workaround: s.Close() may trigger a panic in a separate goroutine during
+		// cleanup. We defer a recover() to intercept that panic and log the error
+		// gracefully instead of crashing the process.
 		defer func() {
 			v := recover()
 			if v != nil {
