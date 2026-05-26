@@ -257,3 +257,6 @@ certbot certonly --standalone --register-unsafely-without-email --non-interactiv
 
 ## Stargazers over Time
 [![Stargazers over time](https://starchart.cc/alireza0/s-ui.svg)](https://starchart.cc/alireza0/s-ui)
+
+## Contributing
+PRs welcome!
