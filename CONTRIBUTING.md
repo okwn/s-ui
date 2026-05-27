@@ -50,7 +50,7 @@ The **frontend** lives in a submodule. If you only work on the backend, you can 
 
    This runs `./build.sh` then `SUI_DB_FOLDER="db" SUI_DEBUG=true ./sui`.
 
-2. Or build manually:
+2. Or build mannually:
 
    ```bash
    ./build.sh
