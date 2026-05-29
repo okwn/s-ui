@@ -274,3 +274,6 @@ If you maintain a fork or your own repository and want the contribution guide to
 ---
 
 Thank you for helping S-UI grow. Your contributions make it possible for more users to adopt S-UI in production and benefit from its multi-inbound-per-user design.
+
+## Contributors
+- Documentation improvements (2026)
